@@ -18,7 +18,7 @@ pub fn main() !void {
 
     const cwd = fs.cwd();
     const open_file_flags = fs.File.OpenFlags{ .mode = .read_only };
-    const file_path = "./file.txt";
+    const file_path = "./myppm_p3.ppm";
 
     const file = try cwd.openFile(file_path, open_file_flags);
 
