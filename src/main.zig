@@ -1,21 +1,9 @@
 const std = @import("std");
 // Create some alias's
 const print = std.debug.print;
-const heap = std.heap;
-
 const fs: type = std.fs;
 
 pub fn main() !void {
-    var gpa = heap.GeneralPurposeAllocator(.{}){};
-    defer _ = gpa.deinit();
-    const allocator = gpa.allocator();
-
-    const ptr = try allocator.create(u8);
-    defer allocator.destroy(ptr);
-
-    ptr.* = 42;
-    print("{*}\n", .{ptr});
-
     const cwd = fs.cwd();
     const open_file_flags = fs.File.OpenFlags{ .mode = .read_only };
     const file_path = "./myppm_p3.ppm";
